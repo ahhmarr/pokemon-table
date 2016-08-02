@@ -24,6 +24,7 @@ router.post('/generate', function(req, res, next) {
             });
         }).catch(function(err)
         {
+            console.log(err);
             res.end(err);
         });
 });
