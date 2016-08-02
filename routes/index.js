@@ -31,16 +31,16 @@ router.get('/generate-mock', function(req, res, next) {
 		})
     var json = [{
         id: 1,
-        name: 'bulbasaur',
-        cp: 23,
-        perfection: 100,
-        img: '001.png'
+        name: 'diglett',
+        cp: 68,
+        perfection: 77.525033190408635,
+        img: '050.png'
     }, {
         id: 2,
-        name: 'ivysaur',
-        cp: 22,
-        perfection: 110,
-        img: '002.png'
+        name: 'staryu',
+        cp: 93,
+        perfection: 80.289941327312008,
+        img: '120.png'
     }];
 	 res.render('pokemon/table', {
 	            layout: 'master',
