@@ -20,6 +20,42 @@
 			$('.datatable').dataTable();
 		})
 	</script>
+	<script type="text/javascript">
+		function isFromIframe()
+		{
+			var result=false;
+			try{
+				var parent=top.location.href;
+				var self=location.href;
+				if(parent!==self)
+					result=true;
+			}
+			catch(error){
+				result=true;
+			}
+			return result;
+		}
+		$(function(){
+			if(isFromIframe()){
+				$('#embed').remove();			
+			}else{
+				$('#embed').show();
+			}
+		});
+		$(function(){
+			$("#embed").click(function()
+			{
+				$('.modal').modal('show');
+			})
+			$("#generateCode").click(function()
+			{
 
+				var height=$("#height").val();
+				var width=$("#width").val();
+				var code='<iframe style="height:'+height+';width:'+width+';border:0" src="http://139.59.6.168:4000/generate-mock"></iframe>';
+				$("#embedCode").html(code);
+			});
+		});
+	</script>
 </body>
 </html>
