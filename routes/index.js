@@ -30,13 +30,13 @@ router.get('/generate-mock', function(req, res, next) {
 			return parseInt(value)+1
 		})
     var json = [{
-        id: 1,
+        id: 50,
         name: 'diglett',
         cp: 68,
         perfection: 77.525033190408635,
         img: '050.png'
     }, {
-        id: 2,
+        id: 120,
         name: 'staryu',
         cp: 93,
         perfection: 80.289941327312008,
