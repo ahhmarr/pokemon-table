@@ -1,0 +1,29 @@
+<h3 class="text-center">Pokemon List</h3>
+<br>
+<table class="table datatable stripe">
+<thead>
+	<tr>
+		<th>#</th>
+		<th>id</th>
+		<th></th>
+		<th>name</th>
+		<th>cp</th>
+		<th>perfection</th>
+	</tr>
+</thead>
+<tbody>
+	{{#each pokemons}}
+	<tr>
+		<td>{{inc @index  }}</td>
+		<td>{{id}}</td>
+		<td>
+			<img height="40" src="https://media.bisafans.de/aa4ff30/pokemon/artwork/{{img}}">
+		</td>
+		<td>{{name}}</td>
+		<td>{{cp}}</td>
+		<td>{{perfection}}</td>
+	</tr>
+	{{/each}}
+	</tbody>
+</table>
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>pokemon table generator tool</title>
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/datatable.min.css">
+</head>
+<body>
+	{{!-- <header>head</header> --}}
+	<div class="container">
+		{{{body}}}
+	</div>
+	{{!-- <footer>footer</footer> --}}
+	<script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="vendor/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.datatable').dataTable();
+		})
+	</script>
+
+</body>
+</html>
