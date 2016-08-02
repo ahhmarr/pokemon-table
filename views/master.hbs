@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>pokemon table generator tool</title>
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="stylesheets/datatable.min.css">
+	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/datatable.min.css">
 </head>
 <body>
 	{{!-- <header>head</header> --}}
@@ -12,9 +12,9 @@
 		{{{body}}}
 	</div>
 	{{!-- <footer>footer</footer> --}}
-	<script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="vendor/datatables.net/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/vendor/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			$('.datatable').dataTable();
@@ -52,7 +52,8 @@
 
 				var height=$("#height").val();
 				var width=$("#width").val();
-				var code='<iframe style="height:'+height+';width:'+width+';border:0" src="http://139.59.6.168:4000/generate-mock"></iframe>';
+				var url=location.href;
+				var code='<iframe style="height:'+height+';width:'+width+';border:0" src="'+url+'"></iframe>';
 				$("#embedCode").html(code);
 			});
 		});

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var parse = require('../lib/parseData');
 var hbs=require('hbs');
+var List=require('../lib/DB');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('index', {
@@ -17,18 +18,33 @@ router.post('/generate', function(req, res, next) {
         })
     parse.read(req)
         .then(function(json) {
-            console.log(json);
+            
+            
             res.render('pokemon/table', {
                 layout: 'master',
                 pokemons: json
             });
         });
 });
+hbs.registerHelper("inc",function(value,option)
+        {
+            return parseInt(value)+1
+        });
+router.get('/list/:id', function(req, res, next) {
+    // console.log(req.param('id'));
+    var ObjectId=require('mongoose').Types.ObjectId;
+    var list=List.findOne({
+        _id : new ObjectId(req.param('id'))
+    }).exec(function(resp,list)
+    {
+        res.render('pokemon/table', {
+                layout: 'master',
+                pokemons: list.lists
+            });
+    });
+});
 router.get('/generate-mock', function(req, res, next) {
-	hbs.registerHelper("inc",function(value,option)
-		{
-			return parseInt(value)+1
-		})
+	
     var json = [{
         id: 50,
         name: 'diglett',
@@ -42,9 +58,14 @@ router.get('/generate-mock', function(req, res, next) {
         perfection: 80.289941327312008,
         img: '120.png'
     }];
-	 res.render('pokemon/table', {
-	            layout: 'master',
-	            pokemons: json
-	        });
+    var l=new List({
+        lists : json,
+        cerated_at : new Date()
+    }).save(function(resp,obj)
+    {
+         res.redirect('/list/'+obj._id);
+    });
+    console.log(l);
+	
 });
 module.exports = router;
