@@ -18,11 +18,12 @@ router.post('/generate', function(req, res, next) {
         })
     parse.read(req)
         .then(function(json) {
-            
-            
-            res.render('pokemon/table', {
-                layout: 'master',
-                pokemons: json
+             var l=new List({
+                lists : json,
+                cerated_at : new Date()
+            }).save(function(resp,obj)
+            {
+                 res.redirect('/list/'+obj._id);
             });
         });
 });
