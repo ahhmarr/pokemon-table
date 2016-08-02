@@ -12,10 +12,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/generate', function(req, res, next) {
-    hbs.registerHelper("inc",function(value,option)
-        {
-            return parseInt(value)+1
-        })
+    
     parse.read(req)
         .then(function(json) {
              var l=new List({
@@ -25,12 +22,12 @@ router.post('/generate', function(req, res, next) {
             {
                  res.redirect('/list/'+obj._id);
             });
+        }).catch(function(err)
+        {
+            res.end(err);
         });
 });
-hbs.registerHelper("inc",function(value,option)
-        {
-            return parseInt(value)+1
-        });
+
 router.get('/list/:id', function(req, res, next) {
     // console.log(req.param('id'));
     var ObjectId=require('mongoose').Types.ObjectId;
@@ -40,7 +37,7 @@ router.get('/list/:id', function(req, res, next) {
     {
         res.render('pokemon/table', {
                 layout: 'master',
-                pokemons: list.lists
+                pokemons: list.lists,
             });
     });
 });
@@ -68,5 +65,11 @@ router.get('/generate-mock', function(req, res, next) {
     });
     console.log(l);
 	
+});
+hbs.registerHelper("inc",function(value,option){
+    return parseInt(value)+1
+});
+hbs.registerHelper("round",function(value,option){
+    return parseFloat(value).toFixed(2);
 });
 module.exports = router;

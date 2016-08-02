@@ -9,6 +9,7 @@
 		<th>name</th>
 		<th>cp</th>
 		<th>perfection</th>
+		<th>candy</th>
 	</tr>
 </thead>
 <tbody>
@@ -22,7 +23,12 @@
 		</td>
 		<td>{{name}}</td>
 		<td>{{cp}}</td>
-		<td>{{perfection}}</td>
+		<td>{{round perfection}}</td>
+		<td>
+		{{#if candy.count}}
+			{{candy.count}}
+		{{/if}}
+		</td>
 	</tr>
 	{{/each}}
 	</tbody>
