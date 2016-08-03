@@ -28,8 +28,8 @@ plan.remote(function(remote)
 	remote.exec('cd '+folderName+' && git pull origin master');
 	remote.exec('cd '+folderName+' && npm install --production')
 	remote.exec('cd '+folderName+' && bower install')
-	var pmNotExists=remote.exec('cd '+folderName+' && pm2 reload '+folderName+' ');
-	if(pmNotExists){
+	var pmNotExists=remote.exec('cd '+folderName+' && pm2 reload '+folderName);
+	if(pmNotExists && pmNotExists.code){
 		remote.exec('cd '+folderName+' && pm2 start bin/www -n "'+folderName+'"');
 	}
 });
