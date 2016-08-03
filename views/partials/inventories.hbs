@@ -1,0 +1,45 @@
+<style type="text/css">
+	.inventories{
+		/*background-color: red;*/
+		box-sizing:border-box;
+		padding:10px;
+		cursor: pointer;
+	}
+
+	.inventories span{
+		display:inline-block;
+	}
+	.inventories .item{
+		/*background-color: green;*/
+		padding:2px;
+		opacity: .9;
+		transition: all 500ms ease-in-out;
+		
+	}
+	.badge{
+		position: relative;
+		bottom:-15px;
+		left:-20px;
+		opacity: .6;
+		transition: all 500ms ease-in-out;
+	}
+	.item:hover,.badge:hover{
+		opacity: 1;
+	}
+</style>
+{{#inventcondition invents hideInvetory }}
+<div class="inventories">
+	{{#each invents}}
+		<span class="inventory"  title="{{name}}">
+			<span class="item">
+				<figure class="image">
+					<img height="30" src="/images/items/{{itemID}}.png"/>
+					<span class="badge">
+						{{count}}
+					</span>
+				</figure>
+			</span>
+		</span>
+	{{/each}}
+</div>
+{{/inventcondition}}

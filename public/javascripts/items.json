@@ -1,32 +1,124 @@
 {
-    "ITEM_UNKNOWN":0,
-    "ITEM_POKE_BALL":1,
-    "ITEM_GREAT_BALL":2,
-    "ITEM_ULTRA_BALL":3,
-    "ITEM_MASTER_BALL":4,
-    "ITEM_POTION":101,
-    "ITEM_SUPER_POTION":102,
-    "ITEM_HYPER_POTION":103,
-    "ITEM_MAX_POTION":104,
-    "ITEM_REVIVE":201,
-    "ITEM_MAX_REVIVE":202,
-    "ITEM_LUCKY_EGG":301,
-    "ITEM_INCENSE_ORDINARY":401,
-    "ITEM_INCENSE_SPICY":402,
-    "ITEM_INCENSE_COOL":403,
-    "ITEM_INCENSE_FLORAL":404,
-    "ITEM_TROY_DISK":501,
-    "ITEM_X_ATTACK":602,
-    "ITEM_X_DEFENSE":603,
-    "ITEM_X_MIRACLE":604,
-    "ITEM_RAZZ_BERRY":701,
-    "ITEM_BLUK_BERRY":702,
-    "ITEM_NANAB_BERRY":703,
-    "ITEM_WEPAR_BERRY":704,
-    "ITEM_PINAP_BERRY":705,
-    "ITEM_SPECIAL_CAMERA":801,
-    "ITEM_INCUBATOR_BASIC_UNLIMITED":901,
-    "ITEM_INCUBATOR_BASIC":902,
-    "ITEM_POKEMON_STORAGE_UPGRADE":1001,
-    "ITEM_ITEM_STORAGE_UPGRADE":1002,
-  }
+  "items": [
+    {
+      "key": "ITEM_UNKNOWN",
+      "value": 0
+    },
+    {
+      "key": "ITEM_POKE_BALL",
+      "value": 1
+    },
+    {
+      "key": "ITEM_GREAT_BALL",
+      "value": 2
+    },
+    {
+      "key": "ITEM_ULTRA_BALL",
+      "value": 3
+    },
+    {
+      "key": "ITEM_MASTER_BALL",
+      "value": 4
+    },
+    {
+      "key": "ITEM_POTION",
+      "value": 101
+    },
+    {
+      "key": "ITEM_SUPER_POTION",
+      "value": 102
+    },
+    {
+      "key": "ITEM_HYPER_POTION",
+      "value": 103
+    },
+    {
+      "key": "ITEM_MAX_POTION",
+      "value": 104
+    },
+    {
+      "key": "ITEM_REVIVE",
+      "value": 201
+    },
+    {
+      "key": "ITEM_MAX_REVIVE",
+      "value": 202
+    },
+    {
+      "key": "ITEM_LUCKY_EGG",
+      "value": 301
+    },
+    {
+      "key": "ITEM_INCENSE_ORDINARY",
+      "value": 401
+    },
+    {
+      "key": "ITEM_INCENSE_SPICY",
+      "value": 402
+    },
+    {
+      "key": "ITEM_INCENSE_COOL",
+      "value": 403
+    },
+    {
+      "key": "ITEM_INCENSE_FLORAL",
+      "value": 404
+    },
+    {
+      "key": "ITEM_TROY_DISK",
+      "value": 501
+    },
+    {
+      "key": "ITEM_X_ATTACK",
+      "value": 602
+    },
+    {
+      "key": "ITEM_X_DEFENSE",
+      "value": 603
+    },
+    {
+      "key": "ITEM_X_MIRACLE",
+      "value": 604
+    },
+    {
+      "key": "ITEM_RAZZ_BERRY",
+      "value": 701
+    },
+    {
+      "key": "ITEM_BLUK_BERRY",
+      "value": 702
+    },
+    {
+      "key": "ITEM_NANAB_BERRY",
+      "value": 703
+    },
+    {
+      "key": "ITEM_WEPAR_BERRY",
+      "value": 704
+    },
+    {
+      "key": "ITEM_PINAP_BERRY",
+      "value": 705
+    },
+    {
+      "key": "ITEM_SPECIAL_CAMERA",
+      "value": 801
+    },
+    {
+      "key": "ITEM_INCUBATOR_BASIC_UNLIMITED",
+      "value": 901
+    },
+    {
+      "key": "ITEM_INCUBATOR_BASIC",
+      "value": 902
+    },
+    {
+      "key": "ITEM_POKEMON_STORAGE_UPGRADE",
+      "value": 1001
+    },
+    {
+      "key": "ITEM_ITEM_STORAGE_UPGRADE",
+      "value": 1002
+    }
+  ]
+}

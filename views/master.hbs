@@ -51,10 +51,11 @@
 			})
 			$("#generateCode").click(function()
 			{
-
+				var showInvetory=!$("#inventory").is(":checked")
+						?'hinvent=true':'';
 				var height=$("#height").val();
 				var width=$("#width").val();
-				var url=location.href;
+				var url=location.href.split('?')[0]+'?'+showInvetory;
 				var code='<iframe style="height:'+height+';width:'+width+';border:0" src="'+url+'"></iframe>';
 				$("#embedCode").html(code);
 			});

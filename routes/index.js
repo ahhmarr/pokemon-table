@@ -3,6 +3,7 @@ var router = express.Router();
 var parse = require('../lib/parseData');
 var hbs=require('hbs');
 var List=require('../lib/DB');
+var invent=require('../lib/invent');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('index', {
@@ -14,15 +15,19 @@ router.get('/', function(req, res, next) {
 router.post('/generate', function(req, res, next) {
     
     parse.read(req)
-        .then(function(json) {
-             var l=new List({
-                lists : json,
-                cerated_at : new Date()
+        .then(invent.addInventoryName)
+        .then(function(json){
+            console.log(json.inventory);
+            var l=new List({
+                lists : json.lists,
+                inventory : json.inventory,
+                cerated_at : new Date(),
             }).save(function(resp,obj)
             {
                  res.redirect('/list/'+obj._id);
             });
-        }).catch(function(err)
+        })
+        .catch(function(err)
         {
             console.log(err);
             res.end(err);
@@ -30,7 +35,7 @@ router.post('/generate', function(req, res, next) {
 });
 
 router.get('/list/:id', function(req, res, next) {
-    // console.log(req.param('id'));
+    var hideInvetory=req.query.hinvent;
     var ObjectId=require('mongoose').Types.ObjectId;
     var list=List.findOne({
         _id : new ObjectId(req.param('id'))
@@ -39,11 +44,58 @@ router.get('/list/:id', function(req, res, next) {
         res.render('pokemon/table', {
                 layout: 'master',
                 pokemons: list.lists,
+                invents : list.inventory,
+                hideInvetory : hideInvetory
             });
     });
 });
+router.get('/items/:id', function(req, res, next) {
+    var id=req.param('id');
+    invent.search(id)
+            .then(function(resp)
+            {
+                console.log(resp);
+            }).catch(function(err)
+            {
+                console.log(err);
+            });
+});
+hbs.registerHelper("inc",function(value,option){
+    return parseInt(value)+1
+});
+hbs.registerHelper("round",function(value,option){
+    return parseFloat(value).toFixed(2);
+});
+hbs.registerHelper("inventcondition",function(v1,v2,option){
+
+console.log(v2);
+    if(v1 && !v2){
+        return option.fn(this);
+    }
+    else{
+        option.inverse(this);
+    }
+    // option.fn(v1);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 router.get('/generate-mock', function(req, res, next) {
-	
+    
     var json = [{
         id: 50,
         name: 'diglett',
@@ -64,13 +116,7 @@ router.get('/generate-mock', function(req, res, next) {
     {
          res.redirect('/list/'+obj._id);
     });
-    console.log(l);
-	
-});
-hbs.registerHelper("inc",function(value,option){
-    return parseInt(value)+1
-});
-hbs.registerHelper("round",function(value,option){
-    return parseFloat(value).toFixed(2);
+    // console.log(l);
+    
 });
 module.exports = router;
