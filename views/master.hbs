@@ -5,64 +5,16 @@
 	<title>pokemon table generator tool</title>
 	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/stylesheets/datatable.min.css">
+	<link rel="stylesheet" type="text/css" href="/vendor/highlightjs/styles/gruvbox-dark.css">
 </head>
 <body>
 	{{!-- <header>head</header> --}}
-	<div class="">
-		{{{body}}}
-	</div>
+	{{{body}}}
 	{{!-- <footer>footer</footer> --}}
 	<script type="text/javascript" src="/vendor/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		$(function(){
-			$('.datatable').dataTable();
-			$('.pokemon-list').dataTable({
-				"order" : [[3,'desc']]
-			});
-		})
-	</script>
-	<script type="text/javascript">
-		function isFromIframe()
-		{
-			var result=false;
-			try{
-				var parent=top.location.href;
-				var self=location.href;
-				if(parent!==self)
-					result=true;
-			}
-			catch(error){
-				result=true;
-			}
-			return result;
-		}
-		$(function(){
-			if(isFromIframe()){
-				$('#embed').remove();			
-			}else{
-				$('#embed').show();
-			}
-		});
-		$(function(){
-			$("#embed").click(function()
-			{
-				$('.modal').modal('show');
-			})
-			$("#generateCode").click(function()
-			{
-				var showInvetory=!$("#inventory").is(":checked")
-						?'hinvent=true':'';
-				var showCandy=!$("#candy").is(":checked")
-						?'hican=true':'';
-				var height=$("#height").val();
-				var width=$("#width").val();
-				var url=location.href.split('?')[0]+'?'+showInvetory+'&'+showCandy;
-				var code='<iframe style="height:'+height+';width:'+width+';border:0" src="'+url+'"></iframe>';
-				$("#embedCode").html(code);
-			});
-		});
-	</script>
+	<script type="text/javascript" src="/vendor/highlightjs/highlight.pack.min.js"></script>
+	<script type="text/javascript" src="/javascripts/main.js"></script>
 </body>
 </html>

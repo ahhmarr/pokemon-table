@@ -18,6 +18,7 @@
   "dependencies": {
     "bootstrap": "~3.3.7",
     "jquery": "~3.1.0",
-    "datatables.net": "~1.10.12"
+    "datatables.net": "~1.10.12",
+    "highlightjs": "~9.5.0"
   }
 }
