@@ -9,6 +9,9 @@
 </head>
 <body>
 	{{!-- <header>head</header> --}}
+	{{#if session}}
+	<a href="/logout" class="pull-right">logout</a>
+	{{/if}}
 	{{{body}}}
 	{{!-- <footer>footer</footer> --}}
 	<script type="text/javascript" src="/vendor/jquery/dist/jquery.min.js"></script>

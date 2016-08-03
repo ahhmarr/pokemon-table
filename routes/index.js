@@ -6,6 +6,11 @@ var List=require('../lib/DB');
 var invent=require('../lib/invent');
 var password='mycroft!~';
 /* GET home page. */
+router.get('/logout',function(req,res,next)
+{
+    delete req.session.loged;
+    res.redirect('/');
+});
 router.post('/auth',function(req,res,next)
 {
    if(req.body.password===password){
@@ -17,12 +22,14 @@ router.get('/', function(req, res, next) {
     var auth=req.session.loged;
     if(!auth){
         res.render('auth', {
-            layout: 'master'
+            layout: 'master',
+
         });    
     }else{
         res.render('index', {
             title: 'Express',
-            layout: 'master'
+            layout: 'master',
+            session :true
         });    
     }
     
