@@ -17,11 +17,12 @@ router.post('/generate', function(req, res, next) {
     parse.read(req)
         .then(invent.addInventoryName)
         .then(function(json){
-            console.log(json.inventory);
+            console.log(json.lists);
             var l=new List({
                 lists : json.lists,
                 inventory : json.inventory,
-                cerated_at : new Date(),
+                candies :json.candies,
+                created_at : new Date(),
             }).save(function(resp,obj)
             {
                  res.redirect('/list/'+obj._id);
@@ -36,6 +37,8 @@ router.post('/generate', function(req, res, next) {
 
 router.get('/list/:id', function(req, res, next) {
     var hideInvetory=req.query.hinvent;
+    var hideCandy=req.query.hican;
+    console.log(hideCandy);
     var ObjectId=require('mongoose').Types.ObjectId;
     var list=List.findOne({
         _id : new ObjectId(req.param('id'))
@@ -45,7 +48,9 @@ router.get('/list/:id', function(req, res, next) {
                 layout: 'master',
                 pokemons: list.lists,
                 invents : list.inventory,
-                hideInvetory : hideInvetory
+                candies : list.candies,
+                hideInvetory : hideInvetory,
+                hideCandy : hideCandy
             });
     });
 });
@@ -65,6 +70,10 @@ hbs.registerHelper("inc",function(value,option){
 });
 hbs.registerHelper("round",function(value,option){
     return parseFloat(value).toFixed(2);
+});
+hbs.registerHelper("imgURL",function(value,option){
+    console.log(value);
+    return ('000'+value).substr(-3)+'.png';
 });
 hbs.registerHelper("inventcondition",function(v1,v2,option){
 

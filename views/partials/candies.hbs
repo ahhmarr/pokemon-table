@@ -1,0 +1,30 @@
+{{#inventcondition candies hideCandy }}
+<br>
+<hr>
+<br>
+<h2 class="text-center">Candy</h2>
+<table class="table stripe datatable">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td></td>
+			<td>ID</td>
+			<td>name</td>
+			<td>count</td>
+		</tr>
+	</thead>
+	<tbody>
+{{#each candies}}
+	<tr>
+		<td>{{inc @index}}</td>
+		<td>
+			<img height="40" src="https://media.bisafans.de/aa4ff30/pokemon/artwork/{{imgURL familyID}}">
+		</td>
+		<td>{{familyID}}</td>
+		<td>{{name}}</td>
+		<td>{{count}}</td>
+	</tr>
+{{/each}}
+	</tbody>
+</table>
+{{/inventcondition}}

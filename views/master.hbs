@@ -17,7 +17,8 @@
 	<script type="text/javascript" src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			$('.datatable').dataTable({
+			$('.datatable').dataTable();
+			$('.pokemon-list').dataTable({
 				"order" : [[3,'desc']]
 			});
 		})
@@ -53,9 +54,11 @@
 			{
 				var showInvetory=!$("#inventory").is(":checked")
 						?'hinvent=true':'';
+				var showCandy=!$("#candy").is(":checked")
+						?'hican=true':'';
 				var height=$("#height").val();
 				var width=$("#width").val();
-				var url=location.href.split('?')[0]+'?'+showInvetory;
+				var url=location.href.split('?')[0]+'?'+showInvetory+'&'+showCandy;
 				var code='<iframe style="height:'+height+';width:'+width+';border:0" src="'+url+'"></iframe>';
 				$("#embedCode").html(code);
 			});
