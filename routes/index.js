@@ -4,12 +4,28 @@ var parse = require('../lib/parseData');
 var hbs=require('hbs');
 var List=require('../lib/DB');
 var invent=require('../lib/invent');
+var password='mycroft!~';
 /* GET home page. */
+router.post('/auth',function(req,res,next)
+{
+   if(req.body.password===password){
+        req.session.loged=true;
+    }
+    res.redirect('/');
+});
 router.get('/', function(req, res, next) {
-    res.render('index', {
-        title: 'Express',
-        layout: 'master'
-    });
+    var auth=req.session.loged;
+    if(!auth){
+        res.render('auth', {
+            layout: 'master'
+        });    
+    }else{
+        res.render('index', {
+            title: 'Express',
+            layout: 'master'
+        });    
+    }
+    
 });
 
 router.post('/generate', function(req, res, next) {
