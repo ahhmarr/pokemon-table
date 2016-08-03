@@ -4,6 +4,9 @@
 		box-sizing:border-box;
 		padding:10px;
 		cursor: pointer;
+		width:100%;
+		text-align: center;
+
 	}
 
 	.inventories span{
@@ -27,8 +30,8 @@
 		opacity: 1;
 	}
 </style>
-{{#inventcondition invents hideInvetory }}
 <div class="inventories">
+{{#inventcondition invents hideInvetory }}
 	{{#each invents}}
 		<span class="inventory"  title="{{name}}">
 			<span class="item">
