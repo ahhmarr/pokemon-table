@@ -11,6 +11,8 @@ var users = require('./routes/users');
 
 var app = express();
 var hbs=require('hbs');
+
+
 //
 app.use(session({
   resave: false, // don't save session if unmodified
@@ -81,6 +83,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-
+//seeding
+var seeder=require('./lib/seeder');
+seeder.seed();
 module.exports = app;
